@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>Cantabille</title>
+</head>
+<body>
+	타임리프테스트
+	<table border="1">	
+		<tr >
+	      <td th:text="${userName1}">John</td>
+	      <td th:text="${userName2}">Smith</td>
+	     </tr>
+	   <tr th:each="msg, rowStat : ${messages}">
+			<td th:text="${rowStat.count}">1</td>
+			<td th:text="${msg.name}">My Name</td>
+			<td th:text="${msg.email}">my@email.com</td>
+			<td th:text="${msg.phone}">9999</td>
+			<td th:text="${msg.website}">http://mysite.com</td>
+		</tr>
+     </table> 
+</body>
+</html>

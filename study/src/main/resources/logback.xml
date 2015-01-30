@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>▶ %-5level %d{HH:mm:ss.SSS} [%thread] %logger{36}[%method:%line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">   
+       <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>E:/log/logFile.%d{yyyy-MM-dd}.txt</FileNamePattern>
+       </rollingPolicy>
+       <layout class="ch.qos.logback.classic.PatternLayout">
+        <Pattern>▶%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</Pattern>
+       </layout>
+ 	</appender>
+ 
+    <logger name="org.springframework" level="INFO" />
+    
+    <logger name="logback.test" level="info" additivity="false">
+	    <appender-ref ref="FILE" />
+	</logger>
+ 
+    <root level="info">
+        <appender-ref ref="console" />
+    </root>
+</configuration>
